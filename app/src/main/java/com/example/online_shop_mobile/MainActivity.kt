@@ -22,11 +22,45 @@ class MainActivity : AppCompatActivity(), Callback<List<Product>> {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // when login button clicked
-        login.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        val name = intent.getStringExtra("name")
+        val lastname = intent.getStringExtra("lastname")
+        val email = intent.getStringExtra("email")
+        val address = intent.getStringExtra("address")
+        val zipcode = intent.getIntExtra("zipcode", -1)
+        val phone = intent.getStringExtra("phone")
+
+        // <---NAVIGATION--->
+        if(name != null) {
+            login.text = "Profile"
+        } else {
+            login.text = "Login"
         }
+
+        cart.setOnClickListener {
+            Log.i("profile","Cart tab")
+        }
+
+        login.setOnClickListener {
+            // user is logged in
+            Log.i("debugNav","name = $name")
+            if(name != null) {
+                val intent = Intent(this, ProfileActivity::class.java)
+                intent.putExtra("name", name)
+                intent.putExtra("lastname", lastname)
+                intent.putExtra("email", email)
+                intent.putExtra("address", address)
+                intent.putExtra("zipcode", zipcode)
+                intent.putExtra("phone", phone)
+                startActivity(intent)
+            }
+
+            // login
+            else {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        // <---END--->
 
         adapter = ProductAdapter(this)
         items.adapter = adapter
@@ -34,7 +68,7 @@ class MainActivity : AppCompatActivity(), Callback<List<Product>> {
             val product = adapter?.getItem(i)
             if (product != null) {
                 val intent = Intent(this, DetailActivity::class.java)
-                intent.putExtra("ep.rest.id", product.id)
+                intent.putExtra("idProduct", product.id)
                 startActivity(intent)
             }
         }
@@ -49,12 +83,12 @@ class MainActivity : AppCompatActivity(), Callback<List<Product>> {
         val hits = response.body()
 
         if (response.isSuccessful) {
-            Log.i(TAG, "Hits: " + hits.size)
+            Log.i(TAG, "Hits: " + hits!!.size)
             adapter?.clear()
             adapter?.addAll(hits)
         } else {
             val errorMessage = try {
-                "An error occurred: ${response.errorBody().string()}"
+                "An error occurred: ${response.errorBody()!!.string()}"
             } catch (e: IOException) {
                 "An error occurred: error while decoding the error message."
             }

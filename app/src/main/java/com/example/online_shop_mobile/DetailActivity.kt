@@ -17,7 +17,7 @@ class DetailActivity : AppCompatActivity(), Callback<Product> {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        val id = intent.getIntExtra("ep.rest.id", 0)
+        val id = intent.getIntExtra("idProduct", 0)
 
         if (id > 0) {
             ProductAPI.instance.get(id).enqueue(this)
@@ -33,7 +33,7 @@ class DetailActivity : AppCompatActivity(), Callback<Product> {
             tvName.text = product?.title
         } else {
             val errorMessage = try {
-                "An error occurred: ${response.errorBody().string()}"
+                "An error occurred: ${response.errorBody()!!.string()}"
             } catch (e: IOException) {
                 "An error occurred: error while decoding the error message."
             }
