@@ -21,16 +21,10 @@ class MainActivity : AppCompatActivity(), Callback<List<Product>> {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val name = intent.getStringExtra("name")
-        val lastname = intent.getStringExtra("lastname")
-        val email = intent.getStringExtra("email")
-        val address = intent.getStringExtra("address")
-        val zipcode = intent.getIntExtra("zipcode", -1)
-        val phone = intent.getStringExtra("phone")
+        val id = (application as MyApplication).id
 
         // <---NAVIGATION--->
-        if(name != null) {
+        if(id != null) {
             login.text = "Profile"
         } else {
             login.text = "Login"
@@ -42,15 +36,8 @@ class MainActivity : AppCompatActivity(), Callback<List<Product>> {
 
         login.setOnClickListener {
             // user is logged in
-            Log.i("debugNav","name = $name")
-            if(name != null) {
+            if(id != null) {
                 val intent = Intent(this, ProfileActivity::class.java)
-                intent.putExtra("name", name)
-                intent.putExtra("lastname", lastname)
-                intent.putExtra("email", email)
-                intent.putExtra("address", address)
-                intent.putExtra("zipcode", zipcode)
-                intent.putExtra("phone", phone)
                 startActivity(intent)
             }
 

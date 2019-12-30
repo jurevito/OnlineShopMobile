@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity(), Callback<Login> {
 
             val email = emailEdit.text.toString()
             val password = passwordEdit.text.toString()
+
             if(email.isNotBlank() && password.isNotBlank()) {
                 LoginAPI.instance.login(email, password).enqueue(this)
             } else {
@@ -39,15 +40,10 @@ class LoginActivity : AppCompatActivity(), Callback<Login> {
         if (response.isSuccessful) { // 200 .. 300
             Log.i("debugTag2","Response successful")
             //Log.i("debugTag3","Name = " + login!!.name)
+            (application as MyApplication).id = login?.id
 
-            // go to user profile with info
+            // go to user profile
             val intent = Intent(this, ProfileActivity::class.java)
-            intent.putExtra("name", login?.name)
-            intent.putExtra("lastname", login?.lastName)
-            intent.putExtra("email", login?.email)
-            intent.putExtra("address", login?.address)
-            intent.putExtra("zipcode", login?.zipcode)
-            intent.putExtra("phone", login?.phone)
             startActivity(intent)
 
         } else {
