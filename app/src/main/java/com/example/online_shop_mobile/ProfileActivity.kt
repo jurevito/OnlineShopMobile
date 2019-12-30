@@ -23,7 +23,8 @@ class ProfileActivity : AppCompatActivity(), Callback<User> {
 
         // when edit button clicked
         btnEdit.setOnClickListener {
-            Log.i("profile","Edit Profile")
+            val intent = Intent(this, EditActivity::class.java)
+            startActivity(intent)
         }
 
         // when logout button pressed
@@ -39,7 +40,6 @@ class ProfileActivity : AppCompatActivity(), Callback<User> {
         if(id != null) {
             UserAPI.instance.getUserData(id).enqueue(this)
         }
-
 
         // <---NAVIGATION--->
         if(id != null) {

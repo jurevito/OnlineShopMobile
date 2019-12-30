@@ -1,5 +1,6 @@
 package com.example.online_shop_mobile
 
+import android.util.Log
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,12 +18,17 @@ object UserAPI {
         fun getUserData(@Path("id") id: Int): Call<User>
 
         @FormUrlEncoded
-        @PUT("users/{id}")
-        fun updateUserData(@Path("id") id: Int,
-                   @Field("title") title: String,
-                   @Field("price") price: Float,
-                   @Field("description") description: String,
-                   @Field("activated") activated: Boolean): Call<Void>
+        @PUT("users/{idUser}")
+        fun updateUserData(@Path("idUser") idUser: Int,
+                   @Field("name") name: String,
+                   @Field("lastName") lastName: String,
+                   @Field("email") email: String,
+                   @Field("password") password: String,
+                   @Field("type") type: Int,
+                   @Field("address") address: String,
+                   @Field("zipcode_id") zipcode_id: Int,
+                   @Field("phone") phone: String,
+                   @Field("activated") activated: Int): Call<User>
     }
 
     val instance: RestApi by lazy {
