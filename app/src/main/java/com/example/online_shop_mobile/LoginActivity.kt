@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.online_shop_mobile.api.LoginAPI
+import com.example.online_shop_mobile.pojo.Login
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,10 +40,9 @@ class LoginActivity : AppCompatActivity(), Callback<Login> {
         //Log.i("debugTag1", "Got result: " + login)
 
         if (response.isSuccessful) { // 200 .. 300
-            Log.i("debugTag2","Response successful")
-            //Log.i("debugTag3","Name = " + login!!.name)
-            (application as MyApplication).id = login?.id
 
+            (application as MyApplication).id = login?.id
+            Log.i("debugTag3","Login successful with id = " + login?.id)
             // go to user profile
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)

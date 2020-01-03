@@ -3,6 +3,8 @@ package com.example.online_shop_mobile
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import com.example.online_shop_mobile.api.ProductAPI
+import com.example.online_shop_mobile.pojo.Product
 import kotlinx.android.synthetic.main.activity_detail.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,7 +32,7 @@ class DetailActivity : AppCompatActivity(), Callback<Product> {
 
         if (response.isSuccessful) {
             description.text = product?.description
-            tvName.text = product?.title
+            titleName.text = product?.title
         } else {
             val errorMessage = try {
                 "An error occurred: ${response.errorBody()!!.string()}"

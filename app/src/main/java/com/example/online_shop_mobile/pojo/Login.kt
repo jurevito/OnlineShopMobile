@@ -1,4 +1,4 @@
-package com.example.online_shop_mobile
+package com.example.online_shop_mobile.pojo
 
 import java.io.Serializable
 

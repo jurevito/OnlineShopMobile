@@ -1,6 +1,6 @@
-package com.example.online_shop_mobile
+package com.example.online_shop_mobile.api
 
-import android.util.Log
+import com.example.online_shop_mobile.pojo.User
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

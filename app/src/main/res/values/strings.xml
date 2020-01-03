@@ -2,5 +2,5 @@
     <string name="app_name">Online-Shop-Mobile</string>
     <string name="store">Store</string>
     <string name="login">Login</string>
-    <string name="cart">Cart</string>
+    <string name="orders">Orders</string>
 </resources>

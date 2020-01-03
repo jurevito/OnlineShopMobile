@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.example.online_shop_mobile.pojo.Product
 import java.util.*
 
 class ProductAdapter(context: Context) : ArrayAdapter<Product>(context, 0, ArrayList()) {

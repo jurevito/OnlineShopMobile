@@ -41,7 +41,7 @@
     <!-- content -->
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/container"
+            android:id="@+id/orderContainer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" tools:layout_editor_absoluteX="16dp" android:layout_marginTop="8dp"
@@ -49,7 +49,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
         <ListView
-                android:id="@+id/items"
+                android:id="@+id/ordersItems"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"

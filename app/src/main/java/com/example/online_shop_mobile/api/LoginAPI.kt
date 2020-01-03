@@ -1,11 +1,12 @@
-package com.example.online_shop_mobile
+package com.example.online_shop_mobile.api
 
+import com.example.online_shop_mobile.pojo.Login
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
-object ProductAPI {
+object LoginAPI {
 
     interface RestApi {
 
@@ -13,12 +14,11 @@ object ProductAPI {
             const val URL = "http://10.0.2.2:8080/netbeans/online-shop/api/"
         }
 
-        @GET("products")
-        fun getAll(): Call<List<Product>>
-
-        @GET("products/{id}")
-        fun get(@Path("id") id: Int): Call<Product>
-    }
+        @FormUrlEncoded
+        @POST("login")
+        fun login(@Field("email") email: String,
+                   @Field("password") password: String): Call<Login>
+        }
 
     val instance: RestApi by lazy {
         val retrofit = Retrofit.Builder()

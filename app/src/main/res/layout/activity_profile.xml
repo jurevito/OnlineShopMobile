@@ -8,6 +8,7 @@
         tools:context=".MainActivity">
 
     <!-- nav bar -->
+    <!-- nav bar -->
     <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,13 +31,16 @@
             app:layout_constraintTop_toTopOf="@+id/cart"
             app:layout_constraintBottom_toBottomOf="@+id/toolbar"/>
     <Button
-            android:text="@string/cart"
+            android:text="@string/orders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/cart"
             app:layout_constraintTop_toTopOf="@+id/toolbar" app:layout_constraintBottom_toBottomOf="@+id/toolbar"
             app:layout_constraintStart_toEndOf="@+id/store" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toStartOf="@+id/login" android:layout_marginEnd="8dp"/>
+
+    <!-- content -->
+
     <TextView
             android:text="Profile"
             android:layout_width="wrap_content"
@@ -95,7 +99,7 @@
                 android:layout_height="wrap_content" android:id="@+id/btnEdit" android:layout_weight="0.5"/>
     </LinearLayout>
 
-    <!-- content -->
+
 
 
 

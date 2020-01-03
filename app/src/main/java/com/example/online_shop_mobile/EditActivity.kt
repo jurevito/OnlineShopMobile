@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.online_shop_mobile.api.UserAPI
+import com.example.online_shop_mobile.pojo.User
 import kotlinx.android.synthetic.main.activity_edit.*
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_profile.cart
 import kotlinx.android.synthetic.main.activity_profile.login
 import kotlinx.android.synthetic.main.activity_profile.store

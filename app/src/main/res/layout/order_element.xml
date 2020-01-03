@@ -9,14 +9,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <TextView
-                android:text="spaget"
+                android:text="Order #1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/tvName" android:layout_weight="1"
+                android:layout_height="wrap_content" android:id="@+id/tvOrder" android:layout_weight="1"
                 android:textSize="24sp" android:gravity="center"/>
         <TextView
-                android:text="6 dorra"
+                android:text="Cancelled"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/tvPrice" android:layout_weight="1"
+                android:layout_height="wrap_content" android:id="@+id/tvStatus" android:layout_weight="1"
                 android:textSize="24sp" android:gravity="right" android:paddingRight="20dp"/>
     </LinearLayout>
 </LinearLayout>

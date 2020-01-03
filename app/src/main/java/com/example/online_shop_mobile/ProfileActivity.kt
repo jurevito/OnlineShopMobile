@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_login.*
+import com.example.online_shop_mobile.api.UserAPI
+import com.example.online_shop_mobile.pojo.User
 import kotlinx.android.synthetic.main.activity_profile.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -54,7 +55,8 @@ class ProfileActivity : AppCompatActivity(), Callback<User> {
         }
 
         cart.setOnClickListener {
-            Log.i("profile","Cart tab")
+            val intent = Intent(this, OrdersActivity::class.java)
+            startActivity(intent)
         }
         // <---END--->
     }
