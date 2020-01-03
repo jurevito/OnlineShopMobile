@@ -64,8 +64,8 @@ class OrdersActivity : AppCompatActivity(), Callback<List<Order>> {
         ordersItems.onItemClickListener = AdapterView.OnItemClickListener { _, _, i, _ ->
             val order = adapter?.getItem(i)
             if (order != null) {
-                val intent = Intent(this, DetailActivity::class.java)
-                intent.putExtra("idProduct", order.id)
+                val intent = Intent(this, OrderDetailActivity::class.java)
+                intent.putExtra("order", order)
                 startActivity(intent)
             }
         }
