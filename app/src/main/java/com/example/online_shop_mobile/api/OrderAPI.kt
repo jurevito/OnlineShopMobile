@@ -1,6 +1,7 @@
 package com.example.online_shop_mobile.api
 
 import com.example.online_shop_mobile.pojo.Order
+import com.example.online_shop_mobile.pojo.ProductOrder
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,6 +17,9 @@ object OrderAPI {
 
         @GET("{id}")
         fun getOrders(@Path("id") id: Int): Call<List<Order>>
+
+        @GET("products/{id}")
+        fun getOrderProducts(@Path("id") id: Int): Call<List<ProductOrder>>
     }
 
     val instance: RestApi by lazy {

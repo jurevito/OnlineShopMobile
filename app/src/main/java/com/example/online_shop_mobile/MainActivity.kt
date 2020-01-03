@@ -33,8 +33,16 @@ class MainActivity : AppCompatActivity(), Callback<List<Product>> {
         }
 
         cart.setOnClickListener {
-            val intent = Intent(this, OrdersActivity::class.java)
-            startActivity(intent)
+            // user is logged in
+            if(id != null) {
+                val intent = Intent(this, OrdersActivity::class.java)
+                startActivity(intent)
+            }
+
+            // cant access
+            else {
+                Toast.makeText(this, "You have to login to view orders.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         login.setOnClickListener {
@@ -68,7 +76,7 @@ class MainActivity : AppCompatActivity(), Callback<List<Product>> {
         ProductAPI.instance.getAll().enqueue(this)
     }
 
-    // idk
+
     override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
         val hits = response.body()
 

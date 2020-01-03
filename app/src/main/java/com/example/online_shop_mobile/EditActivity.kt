@@ -75,7 +75,8 @@ class EditActivity : AppCompatActivity(), Callback<User> {
         }
 
         cart.setOnClickListener {
-            Log.i("edit","Cart tab")
+            val intent = Intent(this, OrdersActivity::class.java)
+            startActivity(intent)
         }
 
         login.setOnClickListener {

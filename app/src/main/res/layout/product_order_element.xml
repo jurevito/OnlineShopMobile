@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:text="spaget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/orderProductTv" android:layout_weight="1"
+                android:textSize="24sp" android:gravity="center"/>
+        <TextView
+                android:text="3 x 6 dorra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/quantity" android:layout_weight="1"
+                android:textSize="24sp" android:gravity="right" android:paddingRight="20dp"/>
+    </LinearLayout>
+</LinearLayout>
